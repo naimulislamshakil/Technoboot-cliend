@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 import { loadStudents } from "../../Redux/Action/action";
 
 const Home = () => {
@@ -32,12 +33,18 @@ const Home = () => {
                 <td>
                   {
                     <>
-                      <button class="btn btn-outline-success me-2 mb-2 ">
+                      <Link
+                        to={`/view/${student._id}`}
+                        class="btn btn-outline-success me-2 mb-2 "
+                      >
                         VIEW
-                      </button>
-                      <button class="btn btn-outline-warning me-2 mb-2">
+                      </Link>
+                      <Link
+                        to={`/update/${student._id}`}
+                        class="btn btn-outline-warning me-2 mb-2"
+                      >
                         UPDATE
-                      </button>
+                      </Link>
                       <button class="btn btn-outline-danger me-2 mb-2">
                         DELETE
                       </button>
