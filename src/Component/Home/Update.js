@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { viewStudents } from "../../Redux/Action/action";
+import { updateStudents, viewStudents } from "../../Redux/Action/action";
 
 const Update = () => {
+  const navigation = useNavigate();
   const [name, setName] = useState("");
   const [school, setSchool] = useState("");
   const [email, setEmail] = useState("");
@@ -28,7 +29,8 @@ const Update = () => {
       class: classes ? classes : student.class,
       roll: roll ? roll : student.roll,
     };
-    console.log(user);
+    dispatch(updateStudents(id, user));
+    navigation("/");
   };
   return (
     <div>

@@ -33,7 +33,7 @@ export const viewOneStudents = (student) => {
 export const loadStudents = () => {
   return function (dispatch) {
     axios
-      .get("http://localhost:5000/all_student")
+      .get("https://technoboot-server.onrender.com/all_student")
       .then((res) => {
         console.log(res);
         dispatch(getStudent(res.data));
@@ -44,7 +44,7 @@ export const loadStudents = () => {
 export const deleteStudents = (id) => {
   return function (dispatch) {
     axios
-      .delete(`http://localhost:5000/all_student/${id}`)
+      .delete(`https://technoboot-server.onrender.com/all_student/${id}`)
       .then((res) => {
         console.log(res);
         dispatch(deleteOneStudents(res.data));
@@ -55,7 +55,7 @@ export const deleteStudents = (id) => {
 export const viewStudents = (id) => {
   return function (dispatch) {
     axios
-      .get(`http://localhost:5000/singel_student/${id}`)
+      .get(`https://technoboot-server.onrender.com/singel_student/${id}`)
       .then((res) => {
         console.log(res);
         dispatch(viewOneStudents(res.data));
@@ -67,7 +67,7 @@ export const viewStudents = (id) => {
 export const addStudents = (user) => {
   return function (dispatch) {
     axios
-      .post(`http://localhost:5000/singel_student`, user)
+      .post(`https://technoboot-server.onrender.com/singel_student`, user)
       .then((res) => {
         console.log(res);
         dispatch(addOneStudents(res.data));
@@ -78,7 +78,7 @@ export const addStudents = (user) => {
 export const updateStudents = (id, user) => {
   return function (dispatch) {
     axios
-      .put(`http://localhost:5000/singel_student/${id}`, user)
+      .put(`https://technoboot-server.onrender.com/update_student/${id}`, user)
       .then((res) => {
         console.log(res);
         dispatch(updateOneStudents(res.data));
