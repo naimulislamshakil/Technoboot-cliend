@@ -1,18 +1,18 @@
 import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { viewOneStudents } from "../../Redux/Action/action";
+import { viewStudents } from "../../Redux/Action/action";
 
 const View = () => {
   const { id } = useParams();
   let dispatch = useDispatch();
   const { student } = useSelector((state) => state.students);
   useEffect(() => {
-    dispatch(viewOneStudents());
-  }, [dispatch]);
+    dispatch(viewStudents(id));
+  }, [id, dispatch]);
   return (
     <div>
-      <h2 className="text-center mt-3">view {id}</h2>
+      <h2 className="text-center mt-3">{student.name}</h2>
       <div className="w-75 mx-auto mt-3">
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label">
@@ -20,7 +20,7 @@ const View = () => {
           </label>
           <input
             type="text"
-            value={""}
+            value={student.name}
             disabled
             class="form-control"
             id="exampleFormControlInput1"
@@ -32,7 +32,7 @@ const View = () => {
           </label>
           <input
             type="text"
-            value={""}
+            value={student.schoolname}
             disabled
             class="form-control"
             id="exampleFormControlInput1"
@@ -44,7 +44,7 @@ const View = () => {
           </label>
           <input
             type="email"
-            value={""}
+            value={student.email}
             disabled
             class="form-control"
             id="exampleFormControlInput1"
@@ -56,7 +56,7 @@ const View = () => {
           </label>
           <input
             type="number"
-            value={""}
+            value={student.phone}
             disabled
             class="form-control"
             id="exampleFormControlInput1"
@@ -68,7 +68,7 @@ const View = () => {
           </label>
           <input
             type="number"
-            value={""}
+            value={student.age}
             disabled
             class="form-control"
             id="exampleFormControlInput1"
@@ -80,7 +80,7 @@ const View = () => {
           </label>
           <input
             type="number"
-            value={""}
+            value={student.class}
             disabled
             class="form-control"
             id="exampleFormControlInput1"
@@ -92,7 +92,7 @@ const View = () => {
           </label>
           <input
             type="number"
-            value={""}
+            value={student.roll}
             class="form-control"
             id="exampleFormControlInput1"
             disabled

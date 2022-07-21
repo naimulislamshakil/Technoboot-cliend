@@ -46,6 +46,7 @@ const Home = () => {
                       >
                         VIEW
                       </Link>
+
                       <Link
                         to={`/update/${student._id}`}
                         class="btn btn-outline-warning me-2 mb-2"
