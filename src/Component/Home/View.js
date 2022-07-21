@@ -12,10 +12,11 @@ const View = () => {
             NAME
           </label>
           <input
-            type=""
+            type="text"
+            value={""}
+            disabled
             class="form-control"
             id="exampleFormControlInput1"
-            placeholder="name@example.com"
           />
         </div>
         <div class="mb-3">
@@ -23,10 +24,11 @@ const View = () => {
             SCHOOL NAME
           </label>
           <input
-            type="email"
+            type="text"
+            value={""}
+            disabled
             class="form-control"
             id="exampleFormControlInput1"
-            placeholder="name@example.com"
           />
         </div>
         <div class="mb-3">
@@ -35,9 +37,10 @@ const View = () => {
           </label>
           <input
             type="email"
+            value={""}
+            disabled
             class="form-control"
             id="exampleFormControlInput1"
-            placeholder="name@example.com"
           />
         </div>
         <div class="mb-3">
@@ -45,10 +48,11 @@ const View = () => {
             PHONE NUMBER
           </label>
           <input
-            type="email"
+            type="number"
+            value={""}
+            disabled
             class="form-control"
             id="exampleFormControlInput1"
-            placeholder="name@example.com"
           />
         </div>
         <div class="mb-3">
@@ -56,10 +60,11 @@ const View = () => {
             AGE
           </label>
           <input
-            type="email"
+            type="number"
+            value={""}
+            disabled
             class="form-control"
             id="exampleFormControlInput1"
-            placeholder="name@example.com"
           />
         </div>
         <div class="mb-3">
@@ -67,10 +72,11 @@ const View = () => {
             CLASS
           </label>
           <input
-            type="email"
+            type="number"
+            value={""}
+            disabled
             class="form-control"
             id="exampleFormControlInput1"
-            placeholder="name@example.com"
           />
         </div>
         <div class="mb-3">
@@ -78,10 +84,11 @@ const View = () => {
             ROLL
           </label>
           <input
-            type="email"
+            type="number"
+            value={""}
             class="form-control"
             id="exampleFormControlInput1"
-            placeholder="name@example.com"
+            disabled
           />
         </div>
       </div>
