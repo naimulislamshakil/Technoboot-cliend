@@ -20,6 +20,12 @@ const studentReducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
       };
+    case types.VIEW_STUDENTS:
+      return {
+        ...state,
+        student: action.payload,
+        isLoading: false,
+      };
 
     default:
       return state;

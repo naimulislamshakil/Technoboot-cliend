@@ -13,6 +13,12 @@ export const deleteOneStudents = () => {
     type: types.DELETE_STUDENTS,
   };
 };
+export const viewOneStudents = (student) => {
+  return {
+    type: types.VIEW_STUDENTS,
+    payload: student,
+  };
+};
 
 export const loadStudents = () => {
   return function (dispatch) {
@@ -26,6 +32,17 @@ export const loadStudents = () => {
   };
 };
 export const deleteStudents = (id) => {
+  return function (dispatch) {
+    axios
+      .get(`http://localhost:5000/all_student/${id}`)
+      .then((res) => {
+        console.log(res);
+        dispatch(deleteOneStudents(res.data));
+      })
+      .catch((err) => console.log(err));
+  };
+};
+export const viewStudents = (id) => {
   return function (dispatch) {
     axios
       .get(`http://localhost:5000/all_student/${id}`)

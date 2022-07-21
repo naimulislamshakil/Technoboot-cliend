@@ -12,6 +12,7 @@ const Home = () => {
 
   const deleteStudent = (id) => {
     dispatch(deleteStudents(id));
+    window.location.reload();
   };
   return (
     <div>

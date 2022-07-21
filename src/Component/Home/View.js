@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { viewOneStudents } from "../../Redux/Action/action";
 
 const View = () => {
   const { id } = useParams();
+  let dispatch = useDispatch();
+  const { student } = useSelector((state) => state.students);
+  useEffect(() => {
+    dispatch(viewOneStudents());
+  }, [dispatch]);
   return (
     <div>
       <h2 className="text-center mt-3">view {id}</h2>
