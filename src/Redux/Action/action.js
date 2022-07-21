@@ -34,7 +34,7 @@ export const loadStudents = () => {
 export const deleteStudents = (id) => {
   return function (dispatch) {
     axios
-      .get(`http://localhost:5000/all_student/${id}`)
+      .delete(`http://localhost:5000/all_student/${id}`)
       .then((res) => {
         console.log(res);
         dispatch(deleteOneStudents(res.data));
@@ -45,7 +45,7 @@ export const deleteStudents = (id) => {
 export const viewStudents = (id) => {
   return function (dispatch) {
     axios
-      .get(`http://localhost:5000/all_student/${id}`)
+      .get(`http://localhost:5000/singel_student/${id}`)
       .then((res) => {
         console.log(res);
         dispatch(deleteOneStudents(res.data));

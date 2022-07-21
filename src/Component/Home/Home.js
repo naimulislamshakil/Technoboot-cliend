@@ -5,15 +5,17 @@ import { deleteStudents, loadStudents } from "../../Redux/Action/action";
 
 const Home = () => {
   let dispatch = useDispatch();
+  const deleteStudent = (id) => {
+    if (window.confirm("Are you sure Delete this student?")) {
+      dispatch(deleteStudents(id));
+      window.location.reload();
+    }
+  };
   const { students } = useSelector((state) => state.students);
   useEffect(() => {
     dispatch(loadStudents());
   }, [dispatch]);
 
-  const deleteStudent = (id) => {
-    dispatch(deleteStudents(id));
-    window.location.reload();
-  };
   return (
     <div>
       <h2 className="text-center mt-3 text-primary">All Student</h2>
