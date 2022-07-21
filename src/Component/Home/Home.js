@@ -1,6 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { loadStudents } from "../../Redux/Action/action";
 
 const Home = () => {
+  let dispatch = useDispatch();
+  const { students } = useSelector((state) => state.students);
+  useEffect(() => {
+    dispatch(loadStudents());
+  }, [dispatch]);
   return (
     <div>
       <h2 className="text-center mt-3 text-primary">All Student</h2>
@@ -8,10 +15,11 @@ const Home = () => {
         <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
+              <th scope="col text-center">NO.</th>
+              <th scope="col text-center">NAME</th>
+              <th scope="col text-center">EMAIL</th>
+              <th scope="col text-center">PHONE</th>
+              <th scope="col text-center">ACTION</th>
             </tr>
           </thead>
           <tbody>
@@ -20,17 +28,7 @@ const Home = () => {
               <td>Mark</td>
               <td>Otto</td>
               <td>@mdo</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>Thornton</td>
-              <td>@fat</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td colspan="2">Larry the Bird</td>
-              <td>@twitter</td>
+              <td>@mdo</td>
             </tr>
           </tbody>
         </table>

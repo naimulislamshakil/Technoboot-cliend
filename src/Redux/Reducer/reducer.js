@@ -1,16 +1,24 @@
+import * as types from "../Action/actiontype";
+
 const initialState = {
-  users: [],
-  user: {},
-  isLoading: false,
+  students: [],
+  student: {},
+  isLoading: true,
   error: null | "",
 };
 
-export const useReducer = (state = initialState, action) => {
+const studentReducer = (state = initialState, action) => {
   switch (action.type) {
-    case value:
-      break;
+    case types.GET_STUDENTS:
+      return {
+        ...state,
+        students: action.payload,
+        isLoading: false,
+      };
 
     default:
       return state;
   }
 };
+
+export default studentReducer;
