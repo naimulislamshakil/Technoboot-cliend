@@ -23,13 +23,29 @@ const Home = () => {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>Otto</td>
-              <td>@mdo</td>
-              <td>@mdo</td>
-            </tr>
+            {students.map((student, index) => (
+              <tr>
+                <th scope="row">{index + 1}</th>
+                <td>{student.name}</td>
+                <td>{student.email}</td>
+                <td>{student.phone}</td>
+                <td>
+                  {
+                    <>
+                      <button class="btn btn-outline-success me-2 mb-2 ">
+                        EDIT
+                      </button>
+                      <button class="btn btn-outline-warning me-2 mb-2">
+                        UPDATE
+                      </button>
+                      <button class="btn btn-outline-danger me-2 mb-2">
+                        DELETE
+                      </button>
+                    </>
+                  }
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>

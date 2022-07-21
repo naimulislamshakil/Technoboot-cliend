@@ -2,6 +2,7 @@ import "./App.css";
 import Navbar from "./Component/Navbar/Navbar";
 import { Routes, Route } from "react-router-dom";
 import Home from "./Component/Home/Home";
+import AddStudent from "./Component/Home/AddStudent";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Navbar></Navbar>
       <Routes>
         <Route path="/" element={<Home />}></Route>
+        <Route path="/add_student" element={<AddStudent />}></Route>
       </Routes>
     </div>
   );

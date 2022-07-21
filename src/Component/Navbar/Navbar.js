@@ -23,8 +23,21 @@ const Navbar = () => {
             </Link>
             <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <Link class="nav-link active" aria-current="page" to="/">
+                <Link
+                  class="nav-link active fw-bold"
+                  aria-current="page"
+                  to="/"
+                >
                   Home
+                </Link>
+              </li>
+              <li class="nav-item">
+                <Link
+                  class="nav-link fw-bold"
+                  aria-current="page"
+                  to="/add_student"
+                >
+                  Add Student
                 </Link>
               </li>
             </ul>
