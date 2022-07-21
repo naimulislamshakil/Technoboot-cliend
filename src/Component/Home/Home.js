@@ -33,7 +33,7 @@ const Home = () => {
                   {
                     <>
                       <button class="btn btn-outline-success me-2 mb-2 ">
-                        EDIT
+                        VIEW
                       </button>
                       <button class="btn btn-outline-warning me-2 mb-2">
                         UPDATE
