@@ -15,6 +15,11 @@ const studentReducer = (state = initialState, action) => {
         students: action.payload,
         isLoading: false,
       };
+    case types.DELETE_STUDENTS:
+      return {
+        ...state,
+        isLoading: false,
+      };
 
     default:
       return state;

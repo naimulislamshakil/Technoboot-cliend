@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { loadStudents } from "../../Redux/Action/action";
+import { deleteStudents, loadStudents } from "../../Redux/Action/action";
 
 const Home = () => {
   let dispatch = useDispatch();
@@ -9,6 +9,10 @@ const Home = () => {
   useEffect(() => {
     dispatch(loadStudents());
   }, [dispatch]);
+
+  const deleteStudent = (id) => {
+    dispatch(deleteStudents(id));
+  };
   return (
     <div>
       <h2 className="text-center mt-3 text-primary">All Student</h2>
@@ -45,7 +49,10 @@ const Home = () => {
                       >
                         UPDATE
                       </Link>
-                      <button class="btn btn-outline-danger me-2 mb-2">
+                      <button
+                        onClick={() => deleteStudent(student._id)}
+                        class="btn btn-outline-danger me-2 mb-2"
+                      >
                         DELETE
                       </button>
                     </>

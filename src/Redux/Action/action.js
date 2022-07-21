@@ -8,11 +8,11 @@ const getStudent = (students) => {
   };
 };
 
-// export const loading = (loading) => {
-//     return {
-//         type:
-//     }
-// }
+export const deleteOneStudents = () => {
+  return {
+    type: types.DELETE_STUDENTS,
+  };
+};
 
 export const loadStudents = () => {
   return function (dispatch) {
@@ -21,6 +21,17 @@ export const loadStudents = () => {
       .then((res) => {
         console.log(res);
         dispatch(getStudent(res.data));
+      })
+      .catch((err) => console.log(err));
+  };
+};
+export const deleteStudents = (id) => {
+  return function (dispatch) {
+    axios
+      .get(`http://localhost:5000/all_student/${id}`)
+      .then((res) => {
+        console.log(res);
+        dispatch(deleteOneStudents(res.data));
       })
       .catch((err) => console.log(err));
   };
