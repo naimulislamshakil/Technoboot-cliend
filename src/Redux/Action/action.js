@@ -18,6 +18,11 @@ export const addOneStudents = () => {
     type: types.ADD_STUDENTS,
   };
 };
+export const updateOneStudents = () => {
+  return {
+    type: types.UPDATE_STUDENTS,
+  };
+};
 export const viewOneStudents = (student) => {
   return {
     type: types.VIEW_STUDENTS,
@@ -66,6 +71,17 @@ export const addStudents = (user) => {
       .then((res) => {
         console.log(res);
         dispatch(addOneStudents(res.data));
+      })
+      .catch((err) => console.log(err));
+  };
+};
+export const updateStudents = (id, user) => {
+  return function (dispatch) {
+    axios
+      .put(`http://localhost:5000/singel_student/${id}`, user)
+      .then((res) => {
+        console.log(res);
+        dispatch(updateOneStudents(res.data));
       })
       .catch((err) => console.log(err));
   };

@@ -25,6 +25,11 @@ const studentReducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
       };
+    case types.UPDATE_STUDENTS:
+      return {
+        ...state,
+        isLoading: false,
+      };
     case types.VIEW_STUDENTS:
       return {
         ...state,

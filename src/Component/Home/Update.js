@@ -1,87 +1,124 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { viewStudents } from "../../Redux/Action/action";
 
 const Update = () => {
+  const [name, setName] = useState("");
+  const [school, setSchool] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [age, setAge] = useState(0);
+  const [classes, setClass] = useState(0);
+  const [roll, setRoll] = useState(0);
   const { id } = useParams();
+  let dispatch = useDispatch();
+  const { student } = useSelector((state) => state.students);
+  useEffect(() => {
+    dispatch(viewStudents(id));
+  }, [id, dispatch]);
+
+  const updateStudent = () => {
+    const user = {
+      name: name ? name : student.name,
+      schoolname: school ? school : student.schoolname,
+      email: email ? email : student.email,
+      phone: phone ? phone : student.phone,
+      age: age ? age : student.age,
+      class: classes ? classes : student.class,
+      roll: roll ? roll : student.roll,
+    };
+    console.log(user);
+  };
   return (
     <div>
-      <h2 className="text-center mt-3">update {id}</h2>
+      <h2 className="text-center mt-3">{student.name}</h2>
       <div className="w-75 mx-auto mt-3">
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">
+        <div className="mb-3">
+          <label for="exampleFormControlInput1" className="form-label">
             NAME
           </label>
           <input
             type="text"
-            class="form-control"
+            onChange={(e) => setName(e.target.value)}
+            className="form-control"
             id="exampleFormControlInput1"
           />
         </div>
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">
+        <div className="mb-3">
+          <label for="exampleFormControlInput1" className="form-label">
             SCHOOL NAME
           </label>
           <input
             type="text"
-            class="form-control"
+            onChange={(e) => setSchool(e.target.value)}
+            className="form-control"
             id="exampleFormControlInput1"
           />
         </div>
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">
+        <div className="mb-3">
+          <label for="exampleFormControlInput1" className="form-label">
             EMAIL
           </label>
           <input
             type="email"
-            class="form-control"
+            onChange={(e) => setEmail(e.target.value)}
+            className="form-control"
             id="exampleFormControlInput1"
           />
         </div>
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">
+        <div className="mb-3">
+          <label for="exampleFormControlInput1" className="form-label">
             PHONE NUMBER
           </label>
           <input
             type="number"
-            class="form-control"
+            onChange={(e) => setPhone(e.target.value)}
+            className="form-control"
             id="exampleFormControlInput1"
           />
         </div>
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">
+        <div className="mb-3">
+          <label for="exampleFormControlInput1" className="form-label">
             AGE
           </label>
           <input
             type="number"
-            class="form-control"
+            onChange={(e) => setAge(e.target.value)}
+            className="form-control"
             id="exampleFormControlInput1"
           />
         </div>
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">
-            CLASS
+        <div className="mb-3">
+          <label for="exampleFormControlInput1" className="form-label">
+            class
           </label>
-          <select class="form-select" aria-label="Default select example">
-            <option selected>Select your class</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-            <option value="11">11</option>
-            <option value="12">12</option>
-          </select>
+          <input
+            type="number"
+            onChange={(e) => setClass(e.target.value)}
+            className="form-control"
+            id="exampleFormControlInput1"
+          />
         </div>
-        <div class="mb-3">
-          <label for="exampleFormControlInput1" class="form-label">
+        <div className="mb-3">
+          <label for="exampleFormControlInput1" className="form-label">
             ROLL
           </label>
           <input
             type="number"
-            class="form-control"
+            onChange={(e) => setRoll(e.target.value)}
+            className="form-control"
             id="exampleFormControlInput1"
           />
         </div>
+      </div>
+      <div className="d-flex justify-content-center">
+        <button
+          onClick={updateStudent}
+          class="btn btn-outline-warning me-2 mb-2"
+        >
+          ADD STUDENT
+        </button>
       </div>
     </div>
   );
